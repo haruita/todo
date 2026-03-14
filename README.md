@@ -31,8 +31,8 @@ Para correr este proyecto, seguí estos pasos:
 
 1.  **Cloná el repositorio:**
     ```bash
-    git clone <https://github.com/haruita/todo.git>
-    cd <todo>
+    git clone "https://github.com/haruita/todo.git"
+    cd "todo"
     ```
 
 2.  **Instalá todas las dependencias (Monorepo setup):**
