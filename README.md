@@ -1,73 +1,64 @@
-# React + TypeScript + Vite
+# TODO
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Esta es una aplicación web fullstack para la gestión de tareas personales, desarrollada como parte de una prueba técnica para el ingreso a la Academia ForIT. Permite realizar las operaciones CRUD básicas (Crear, Leer, Actualizar y Eliminar) sobre notas, con un frontend interactivo y un backend persistente en memoria.
 
-Currently, two official plugins are available:
+![Lista de Tareas](./screenshots/list.png)
+![Formulario de Creación](./screenshots/form.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## React Compiler
+## Tecnologías Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+El proyecto fue construido utilizando un stack moderno enfocado en la escalabilidad y el tipado fuerte:
 
-## Expanding the ESLint configuration
+* **Frontend:**
+    * React (con Vite)
+    * TypeScript
+    * React Router Dom (para la navegación)
+    * ESLint (para la calidad del código)
+* **Backend:**
+    * Node.js
+    * Express
+    * TypeScript
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Para correr este proyecto, seguí estos pasos:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Prerrequisitos
+* Tener instalado [Node.js](https://nodejs.org/) (versión 18 o superior recomendada).
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Instalación y Ejecución
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1.  **Cloná el repositorio:**
+    ```bash
+    git clone <https://github.com/haruita/todo.git>
+    cd <todo>
+    ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2.  **Instalá todas las dependencias (Monorepo setup):**
+    Desde la raíz del proyecto, ejecutá el script que instala dependencias tanto para el frontend como para el backend:
+    ```bash
+    npm run install:all
+    ```
+    *(Nota: Este script debe estar definido en el package.json de la raíz).*
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3.  **Iniciá ambos servidores simultáneamente:**
+    Ejecutá el siguiente comando en la raíz para levantar el frontend (Vite) y el backend (Express) al mismo tiempo:
+    ```bash
+    npm run dev
+    ```
+
+La aplicación frontend estará disponible en `http://localhost:5173` y la API backend en `http://localhost:3000`.
+
+---
+
+## Notas de Desarrollo
+
+* **Persistencia:** Los datos se manejan en memoria en el backend para este challenge. Reiniciar el servidor del backend borrará las notas creadas, volviendo a la nota de prueba inicial.
+* **Tipado:** Se utilizó TypeScript en todo el proyecto (frontend y backend) para garantizar la integridad de los datos, definiendo interfaces claras para el objeto `Task`.
+* **Estructura de Carpetas:**
+    * `/frontend`: Contiene la aplicación React (Vite).
+    * `/backend`: Contiene la API Express (Node).
+    * `/screenshots`: Capturas de pantalla de la aplicación funcionando.
+
+---
