@@ -8,8 +8,6 @@ Esta es una aplicación web fullstack para la gestión de tareas personales, des
 
 ## Tecnologías Utilizadas
 
-El proyecto fue construido utilizando un stack moderno enfocado en la escalabilidad y el tipado fuerte:
-
 * **Frontend:**
     * React (con Vite)
     * TypeScript
